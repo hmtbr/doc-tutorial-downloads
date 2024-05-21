@@ -40,19 +40,19 @@ def extract_entities(text):
         IAM_TOKEN = get_iam_token()
     # Prompt
     payload = {
-        'model_id': 'ibm/granite-13b-instruct-v1',
-        'input': f'''Act as a webmaster who must extract structured information from emails. Read the below email and extract and categorize each entity. If no entity is found, output "None".
+        'model_id': 'ibm/granite-8b-japanese',
+        'input': f'''以下の入力の文章を読んでエンティティを抽出し、それぞれのエンティティについてカテゴリーを一緒に出力してください。もしエンティティが見つからなかった場合は"Not found"と出力してください。
 
-Input:
-"Golden Bank is a competitor of Silver Bank in the US" said John Doe.
+入力の文章:
+watsonx OrchestateはIBMの製品です。タスクの自動化、情報の検索、複雑なプロセスの簡素化を任せることで、ワークフローを合理化し、時間と手間を軽減します。これにより、重要な業務に集中できます。
 
-Named Entities:
-Golden Bank: company, Silver Bank: company, US: country, John Doe: person
+エンティティ:
+watsonx Orchestarte: 製品名, IBM: 会社名1
 
-Input:
+入力の文章:
 {text}
 
-Named Entities:
+エンティティ:
 ''',
         'parameters': {
             'decoding_method': 'greedy',
