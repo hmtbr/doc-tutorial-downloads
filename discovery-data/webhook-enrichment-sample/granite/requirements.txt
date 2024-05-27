@@ -1,3 +1,6 @@
 Flask
 pyjwt
 requests
+ibm-generative-ai
+python-dotenv
+langchain
