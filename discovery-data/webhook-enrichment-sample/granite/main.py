@@ -135,7 +135,7 @@ def extract_entities(contexts: list[str]):
             model_id=model_id, inputs=prompt, parameters=parameters
         )
         entity = next(response).results[0].generated_text
-        if entity not in ("不明", "IBM"):
+        if ("不明" not in entity) and (not re.match(r"IBM.*", entity)):
             entity_values.add(entity)
     return [{"text": e, "type": "パートナー企業"} for e in entity_values]
 
